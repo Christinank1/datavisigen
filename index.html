@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <!-- Optionally include Vega-Lite and Vega-Embed (if needed for future visualizations) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Optionally include Pure.css for a grid layout -->
+    <link 
+      rel="stylesheet" 
+      href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" 
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+      crossorigin="anonymous"
+    >
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      // Header AFL Australia
+      "mark": {"type": "text"},
+      "title": {
+        "text": "AFL Australia",
+        "anchor": "middle",
+        "fontSize": 30
+        
+      },
+      "encoding": {
+        "text": {"value": ""}  
+      }
+  
+
+},
+  
+    {
+      "title": {"text": "Average Goals per Game by Team", "anchor": "start", "fontSize": 18},
+      "description": "A bar chart showing the average number of goals per game for each AFL team.",
+      "data": {
+        "values": [
+          {"Team": "Swans", "Goals": 14.2},
+          {"Team": "Cats", "Goals": 14.2},
+          {"Team": "Bulldogs", "Goals": 13.4},
+          {"Team": "Lions", "Goals": 13.2},
+          {"Team": "Blues", "Goals": 13.6},
+          {"Team": "Hawks", "Goals": 13.3},
+          {"Team": "Giants", "Goals": 13.1},
+          {"Team": "Magpies", "Goals": 12.5},
+          {"Team": "Power", "Goals": 12.1},
+          {"Team": "Dockers", "Goals": 12.4},
+          {"Team": "Suns", "Goals": 12.2},
+          {"Team": "Crows", "Goals": 12.1},
+          {"Team": "Bombers", "Goals": 12.0},
+          {"Team": "Demons", "Goals": 11.3},
+          {"Team": "Saints", "Goals": 11.0},
+          {"Team": "Kangaroos", "Goals": 10.6},
+          {"Team": "Eagles", "Goals": 10.0},
+          {"Team": "Tigers", "Goals": 9.2}
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {"field": "Team", "type": "nominal", "sort": "-y", "title": "AFL Team"},
+        "y": {"field": "Goals", "type": "quantitative", "title": "Average Goals per Game"},
+        "color": {
+          "field": "Team",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Swans",
+              "Cats",
+              "Bulldogs",
+              "Lions",
+              "Blues",
+              "Hawks",
+              "Giants",
+              "Magpies",
+              "Power",
+              "Dockers",
+              "Suns",
+              "Crows",
+              "Bombers",
+              "Demons",
+              "Saints",
+              "Kangaroos",
+              "Eagles",
+              "Tigers"
+            ],
+            "range": [
+              "#FF0000",
+              "#00FF00",
+              "#0000FF",
+              "#FFFF00",
+              "#00FFFF",
+              "#FF00FF",
+              "#FFA500",
+              "#800080",
+              "#008000",
+              "#FFC0CB",
+              "#A52A2A",
+              "#FFD700",
+              "#4B0082",
+              "#008080",
+              "#000000",
+              "#C0C0C0",
+              "#B22222",
+              "#1E90FF"
+            ]
+          }
+        }
+      },
+      "config": {
+        "axis": {
+          "labelFontSize": 12,
+          "titleFontSize": 14
+        }
+      }
+    },
+    {
+      "title": {"text": "Kicks vs Handballs", "anchor": "start", "fontSize": 18},
+      "description": "A scatter plot showing the number of kicks vs. handballs for each AFL team.",
+      "data": {
+        "values": [
+          {"Team": "Swans", "Kicks": 220.0, "Handballs": 138.1},
+          {"Team": "Cats", "Kicks": 216.3, "Handballs": 135.4},
+          {"Team": "Bulldogs", "Kicks": 216.8, "Handballs": 154.1},
+          {"Team": "Lions", "Kicks": 232.0, "Handballs": 129.0},
+          {"Team": "Blues", "Kicks": 217.1, "Handballs": 142.1},
+          {"Team": "Hawks", "Kicks": 211.4, "Handballs": 149.5},
+          {"Team": "Giants", "Kicks": 209.5, "Handballs": 164.5},
+          {"Team": "Magpies", "Kicks": 203.7, "Handballs": 139.1},
+          {"Team": "Power", "Kicks": 221.1, "Handballs": 127.0},
+          {"Team": "Dockers", "Kicks": 206.4, "Handballs": 160.8},
+          {"Team": "Suns", "Kicks": 201.8, "Handballs": 145.4},
+          {"Team": "Crows", "Kicks": 213.0, "Handballs": 147.9},
+          {"Team": "Bombers", "Kicks": 221.3, "Handballs": 159.1},
+          {"Team": "Demons", "Kicks": 212.8, "Handballs": 132.9},
+          {"Team": "Saints", "Kicks": 226.5, "Handballs": 137.9},
+          {"Team": "Kangaroos", "Kicks": 207.5, "Handballs": 146.1},
+          {"Team": "Eagles", "Kicks": 190.9, "Handballs": 124.9},
+          {"Team": "Tigers", "Kicks": 199.7, "Handballs": 138.5}
+        ]
+      },
+      "mark": "point",
+      "encoding": {
+        "x": {"field": "Kicks", "type": "quantitative", "title": "Kicks"},
+        "y": {"field": "Handballs", "type": "quantitative", "title": "Handballs"},
+        "color": {
+          "field": "Team",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Swans",
+              "Cats",
+              "Bulldogs",
+              "Lions",
+              "Blues",
+              "Hawks",
+              "Giants",
+              "Magpies",
+              "Power",
+              "Dockers",
+              "Suns",
+              "Crows",
+              "Bombers",
+              "Demons",
+              "Saints",
+              "Kangaroos",
+              "Eagles",
+              "Tigers"
+            ],
+            "range": [
+              "#FF0000",
+              "#00FF00",
+              "#0000FF",
+              "#FFFF00",
+              "#00FFFF",
+              "#FF00FF",
+              "#FFA500",
+              "#800080",
+              "#008000",
+              "#FFC0CB",
+              "#A52A2A",
+              "#FFD700",
+              "#4B0082",
+              "#008080",
+              "#000000",
+              "#C0C0C0",
+              "#B22222",
+              "#1E90FF"
+            ]
+          }
+        }
+      },
+      "config": {
+        "axis": {
+          "labelFontSize": 12,
+          "titleFontSize": 14
+        }
+      }
+    },
+    {
+      "title": {"text": "Heatmap of Kicks and Handballs", "anchor": "start", "fontSize": 18},
+      "description": "A heatmap showing the number of kicks and handballs for each AFL team.",
+      "data": {
+        "values": [
+          {"Team": "Swans", "Kicks": 220.0, "Handballs": 138.1},
+          {"Team": "Cats", "Kicks": 216.3, "Handballs": 135.4},
+          {"Team": "Bulldogs", "Kicks": 216.8, "Handballs": 154.1},
+          {"Team": "Lions", "Kicks": 232.0, "Handballs": 129.0},
+          {"Team": "Blues", "Kicks": 217.1, "Handballs": 142.1},
+          {"Team": "Hawks", "Kicks": 211.4, "Handballs": 149.5},
+          {"Team": "Giants", "Kicks": 209.5, "Handballs": 164.5},
+          {"Team": "Magpies", "Kicks": 203.7, "Handballs": 139.1},
+          {"Team": "Power", "Kicks": 221.1, "Handballs": 127.0},
+          {"Team": "Dockers", "Kicks": 206.4, "Handballs": 160.8},
+          {"Team": "Suns", "Kicks": 201.8, "Handballs": 145.4},
+          {"Team": "Crows", "Kicks": 213.0, "Handballs": 147.9},
+          {"Team": "Bombers", "Kicks": 221.3, "Handballs": 159.1},
+          {"Team": "Demons", "Kicks": 212.8, "Handballs": 132.9},
+          {"Team": "Saints", "Kicks": 226.5, "Handballs": 137.9},
+          {"Team": "Kangaroos", "Kicks": 207.5, "Handballs": 146.1},
+          {"Team": "Eagles", "Kicks": 190.9, "Handballs": 124.9},
+          {"Team": "Tigers", "Kicks": 199.7, "Handballs": 138.5}
+        ]
+      },
+      "mark": "rect",
+      "encoding": {
+        "x": {"field": "Kicks", "type": "quantitative", "title": "Kicks"},
+        "y": {"field": "Handballs", "type": "quantitative", "title": "Handballs"},
+        "color": {"field": "Kicks", "type": "quantitative", "title": "Count"}
+      },
+      "config": {
+        "axis": {
+          "labelFontSize": 12,
+          "titleFontSize": 14
+        }
+      }
+      
+    },
+   {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": {"text": "Map of AFL Team Locations", "anchor": "start", "fontSize": 18},
+      "description": "A map showing the geographic locations of AFL teams based on their stadiums.",
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": "lightgray",
+            "stroke": "white"
+          },
+          "projection": {
+            "type": "mercator", 
+            "scale": 700, 
+            "center": [108, -10],  // Centered on Australia
+            "clipExtent": [[0, 0], [600, 400]]  // Clip extent to focus on Australia
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {"Team": "Swans", "latitude": -33.8650, "longitude": 151.2094},
+              {"Team": "Cats", "latitude": -38.1500, "longitude": 144.3500},
+              {"Team": "Bulldogs", "latitude": -37.8136, "longitude": 144.9631},
+              {"Team": "Lions", "latitude": -27.4698, "longitude": 153.0251},
+              {"Team": "Blues", "latitude": -37.8136, "longitude": 144.9631},
+              {"Team": "Hawks", "latitude": -37.8199, "longitude": 144.9834},
+              {"Team": "Giants", "latitude": -33.8474, "longitude": 150.9938},
+              {"Team": "Magpies", "latitude": -37.8199, "longitude": 144.9834},
+              {"Team": "Power", "latitude": -34.9205, "longitude": 138.5995},
+              {"Team": "Dockers", "latitude": -31.9505, "longitude": 115.8605},
+              {"Team": "Suns", "latitude": -28.0027, "longitude": 153.4146},
+              {"Team": "Crows", "latitude": -34.9205, "longitude": 138.5995},
+              {"Team": "Bombers", "latitude": -37.8136, "longitude": 144.9631},
+              {"Team": "Demons", "latitude": -37.8199, "longitude": 144.9834},
+              {"Team": "Saints", "latitude": -37.8136, "longitude": 144.9631},
+              {"Team": "Kangaroos", "latitude": -37.8136, "longitude": 144.9631},
+              {"Team": "Eagles", "latitude": -31.9505, "longitude": 115.8605},
+              {"Team": "Tigers", "latitude": -37.8199, "longitude": 144.9834}
+            ]
+          },
+          "mark": "circle",
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "color": {
+              "field": "Team",
+              "type": "nominal",
+              "legend": {
+                "title": "AFL Teams"
+              },
+              "scale": {
+                "domain": [
+                  "Swans",
+                  "Cats",
+                  "Bulldogs",
+                  "Lions",
+                  "Blues",
+                  "Hawks",
+                  "Giants",
+                  "Magpies",
+                  "Power",
+                  "Dockers",
+                  "Suns",
+                  "Crows",
+                  "Bombers",
+                  "Demons",
+                  "Saints",
+                  "Kangaroos",
+                  "Eagles",
+                  "Tigers"
+                ],
+                "range": [
+                  "#FF0000",  // Swans
+                  "#00FF00",  // Cats
+                  "#0000FF",  // Bulldogs
+                  "#FFFF00",  // Lions
+                  "#00FFFF",  // Blues
+                  "#FF00FF",  // Hawks
+                  "#FFA500",  // Giants
+                  "#800080",  // Magpies
+                  "#008000",  // Power
+                  "#FFC0CB",  // Dockers
+                  "#A52A2A",  // Suns
+                  "#FFD700",  // Crows
+                  "#4B0082",  // Bombers
+                  "#008080",  // Demons
+                  "#000000",  // Saints
+                  "#C0C0C0",  // Kangaroos
+                  "#B22222",  // Eagles
+                  "#1E90FF"   // Tigers
+                ]
+              }
+            },
+            "tooltip": [
+              {"field": "Team", "type": "nominal", "title": "AFL Team"},
+              {"field": "latitude", "type": "quantitative", "title": "Latitude"},
+              {"field": "longitude", "type": "quantitative", "title": "Longitude"}
+            ]
+          }
+        }
+      ],
+      "width": 640,
+      "height": 400
+    }
+  ]
+}
+
+  
+
+  ]
+}
+
+
+</body>
+</html>
